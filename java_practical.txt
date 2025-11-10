@@ -1,0 +1,59 @@
+1. Create a class box with multiple constructors
+
+
+class Box {
+    double length, breadth, height;
+
+
+    Box() {
+        length = breadth = height = 1;
+    }
+
+    Box(double side) {
+        length = breadth = height = side;
+    }
+
+    Box(double l, double b, double h) {
+        length = l;
+        breadth = b;
+        height = h;
+    }
+
+    double volume() {
+        return length * breadth * height;
+    }
+
+    public static void main(String[] args) {
+        Box b1 = new Box();           
+        Box b2 = new Box(5);             
+        Box b3 = new Box(8,7,6);       
+
+        System.out.println("Volume of Box1: " + box1.volume());
+        System.out.println("Volume of Box2: " + box2.volume());
+        System.out.println("Volume of Box3: " + box3.volume());
+    }
+}
+
+
+
+2. Write a Java program to find the sum of all factors (divisors) of a number
+
+
+
+class SumOfFc {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+        int sum = 0;
+
+
+        for (int i = 1; i <= input; i++) {
+            if (input % i == 0) {
+                System.out.print(i + " ");
+                sum += i;
+            }
+        }
+
+    }
+}
+
