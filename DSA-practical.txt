@@ -1,0 +1,110 @@
+1. Insert node in singly linked list and print list
+
+class Node
+{
+    int value;
+    Node *next;
+
+    Node(int val)
+    {
+        value = val;
+        next = NULL;
+    }
+};
+
+
+class List
+{
+    Node *head;
+    Node *tail;
+
+public:
+    List()
+    {
+        head = tail = NULL;
+    }
+
+ 
+    void push_front(int val)
+    {
+        Node *newNode = new Node(val);
+        if (head == NULL)
+        {
+            head = tail = newNode;
+        }
+        else
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+    }
+
+    void print_ll()
+    {
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->value << "->";
+            temp = temp->next;
+        }
+        cout << "NULL";
+    }
+
+  
+};
+
+
+
+
+
+
+2. Implement Merge Sort
+
+void merge(vector<int> &arr, int low, int mid, int high)
+{
+    vector<int> temp;
+    int left = low;
+    int right = mid + 1;
+
+    while (left <= mid && right <= high)
+    {
+        if (arr[left] < arr[right])
+        {
+            temp.push_back(arr[left]);
+            left++;
+        }
+        else
+        {
+            temp.push_back(arr[right]);
+            right++;
+        }
+    }
+
+    while (left <= mid)
+    {
+        temp.push_back(arr[left]);
+        left++;
+    }
+    while (right <= high)
+    {
+        temp.push_back(arr[right]);
+        right++;
+    }
+
+    for (int i = low; i <= high; i++)
+    {
+        arr[i] = temp[i - low];
+    }
+}
+
+
+void mergeSort(vector<int> &arr, int low, int high)
+{
+
+    if (low >= high)
+        return;
+    int mid = (low + high) / 2;
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid + 1, high);
+    merge(arr, low, mid, high);
+}
