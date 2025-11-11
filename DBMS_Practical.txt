@@ -1,0 +1,25 @@
+CREATE TABLE Hotels (
+    hotel_id INT PRIMARY KEY,
+    hotel_name VARCHAR(60) UNIQUE,
+    city VARCHAR(40),
+    rooms_available INT NOT NULL
+);
+
+INSERT INTO Hotels (hotel_id, hotel_name, city, rooms_available)
+VALUES (1, 'Punjab da dhaba', 'Dholka', 25);
+
+INSERT INTO Hotels (hotel_id, hotel_name, city, rooms_available)
+VALUES (2, 'Tinu kaka fast food', 'Soroda', 40);
+
+UPDATE Hotels
+SET rooms_available = 18
+WHERE hotel_id = 1;
+
+DELETE FROM Hotels
+WHERE hotel_id = 2;
+
+SELECT SUM(rooms_available) AS total_rooms
+FROM Hotels;
+
+SELECT AVG(rooms_available) AS average_rooms
+FROM Hotels;
